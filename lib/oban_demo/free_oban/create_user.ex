@@ -15,5 +15,7 @@ defmodule ObanDemo.FreeOban.CreateUser do
     %{"target" => user.email}
     |> ObanDemo.FreeOban.Notify.new()
     |> Oban.insert()
+
+    :ok
   end
 end

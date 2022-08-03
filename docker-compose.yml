@@ -17,6 +17,7 @@ services:
       - ./test:/app/test
       - ./priv:/app/priv
       - ./.iex.exs:/app/.iex.exs
+      - ./_build:/app/_build
     depends_on:
       - db
     logging:

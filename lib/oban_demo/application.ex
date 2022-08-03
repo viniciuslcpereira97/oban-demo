@@ -11,7 +11,7 @@ defmodule ObanDemo.Application do
       ObanDemo.Repo,
       ObanDemoWeb.Telemetry,
       {Phoenix.PubSub, name: ObanDemo.PubSub},
-      ObanDemoWeb.Endpoint,
+      # ObanDemoWeb.Endpoint,
       {Oban, oban_configuration()}
     ]
 

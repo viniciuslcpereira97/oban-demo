@@ -17,7 +17,8 @@ config :oban_demo, Oban,
     {
       Oban.Plugins.Cron,
       crontab: [
-        {"* * * * *", ObanDemo.FreeOban.Notify, args: %{target: "admin@solfacil.com.br"}, max_attempts: 2}
+        {"* * * * *", ObanDemo.FreeOban.Notify,
+         args: %{target: "admin@solfacil.com.br"}, max_attempts: 2}
       ]
     }
   ],

@@ -1,6 +1,4 @@
 defmodule ObanDemo.ObanPro.UserWorkflow do
-  @moduledoc false
-
   alias ObanDemo.User
   alias ObanDemo.ObanPro.{CreateUser, Notify}
 

@@ -37,3 +37,7 @@ if System.get_env("PHX_SERVER") do
 end
 
 import_config "oban.exs"
+
+if Mix.env() == :test do
+  import_config "test.exs"
+end
