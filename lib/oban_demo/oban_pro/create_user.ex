@@ -5,7 +5,7 @@ defmodule ObanDemo.ObanPro.CreateUser do
 
   @impl true
   def process(%Oban.Job{args: %{"name" => user_name, "email" => user_email}}) do
-    :timer.sleep(10_000)
+    :timer.sleep(20_000)
 
     data = %{name: user_name, email: user_email}
 

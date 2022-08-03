@@ -36,15 +36,4 @@ if System.get_env("PHX_SERVER") do
   config :oban_demo, ObanDemoWeb.Endpoint, server: true
 end
 
-config :oban_demo, Oban,
-  repo: ObanDemo.Repo,
-  engine: Oban.Pro.Queue.SmartEngine,
-  plugins: [
-    Oban.Plugins.Gossip,
-    Oban.Web.Plugins.Stats
-  ],
-  queues: [
-    default: [limit: 10]
-  ]
-
 import_config "oban.exs"
