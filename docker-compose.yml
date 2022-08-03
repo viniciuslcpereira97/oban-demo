@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  oban_demo:
+    stdin_open: true
+    tty: true
+    build: .
+    container_name: oban_demo
+    command: iex -S mix phx.server
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./mix.exs:/app/mix.exs
+      - ./lib:/app/lib
+      - ./config:/app/config
+      - ./test:/app/test
+      - ./priv:/app/priv
+      - ./.iex.exs:/app/.iex.exs
+    depends_on:
+      - db
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "10"
+
+  db:
+    image: postgres:13.5
+    container_name: oban_demo_db
+    environment:
+      POSTGRES_PASSWORD: solfacil
+      POSTGRES_USER: solfacil
+      POSTGRES_DB: oban_demo_dev
+    ports:
+      - "5432:5432"
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "10"
